@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- namespace 的值是 DeptMapper 接口，每个Mapper 接口对应一个配置文件  -->
+<mapper namespace="com.lmt.entity.DeptMapper">
+    <insert id="addDept" parameterType="com.lmt.entity.Dept">
+        insert into DEPT (deptno, dname, loc) values (#{deptno}, #{dname}, #{loc})
+    </insert>
+    <delete id="deleteDept"  parameterType="com.lmt.entity.Dept">
+        delete from DEPT where deptno = #{deptno}
+    </delete>
+    <select id="findDeptById" parameterType="java.lang.Integer"  resultType="com.lmt.entity.Dept">
+        select deptno,dname,loc from DEPT where deptno=#{deptno}
+    </select>
+    <update id="updateDept"  parameterType="com.lmt.entity.Dept">
+        <!-- #{deptno} 读取参数的Bean属性 -->
+        update DEPT set dname=#{dname},loc = #{loc} where deptno=#{deptno}
+    </update>
+    <!-- 注意resultType的值是List中元素类型，结果集行映射的数据类型-->
+    <select id="findAllDept" resultType="com.lmt.entity.Dept">
+        select deptno, dname, loc from DEPT
+    </select>
+    <select id="findDeptByLoc" parameterType="java.lang.String"  resultType="com.lmt.entity.Dept">
+        select deptno, dname, loc from DEPT where loc=#{loc}
+    </select>
+    <select id="findAllDname" parameterType="java.lang.String" resultType="java.util.Map">
+        select dname from DEPT where loc=#{loc}
+    </select>
+</mapper>
