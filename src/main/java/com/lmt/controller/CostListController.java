@@ -22,6 +22,7 @@ public class CostListController{
     @RequestMapping("/list.form")
     public String findCost(HttpServletRequest request, HttpServletResponse response, ModelMap model)
             throws Exception {
+        /*
         int page;
         if(request.getParameter("page")==null){
             page=1;
@@ -35,8 +36,13 @@ public class CostListController{
         list.add(page);
         list.add(pageSize);
         List<Cost> costList=session.selectList("findByPage",list);
-        model.put("page", page);
-        model.put("totalPage", totalPage);
+        */
+        List<Cost> costList=session.selectList("findAll");
+        for(Cost c:costList){
+            System.out.println(c.getCost_id()+c.getName());
+        }
+        //model.put("page", page);
+        //model.put("totalPage", totalPage);
         model.put("costs", costList);
         return "cost/cost_list";
     }
