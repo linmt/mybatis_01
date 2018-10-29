@@ -14,6 +14,6 @@
 	</environments>
 	<!-- 引入Dept.xml 配置 -->
 	<mappers>
-		<mapper resource="com/lmt/entity/Dept.xml"/>
+		<mapper resource="Dept.xml"/>
 	</mappers>
 </configuration>

@@ -8,6 +8,12 @@ public class Dept {
     private String dname;
     private String loc;
 
+    public Dept(Integer deptno, String dname, String loc) {
+        this.deptno = deptno;
+        this.dname = dname;
+        this.loc = loc;
+    }
+
     public Integer getDeptno() {
         return deptno;
     }
