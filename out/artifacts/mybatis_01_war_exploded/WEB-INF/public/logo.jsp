@@ -10,7 +10,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <div id="header">
     <%--路径问题三--%>
-    <img src="images/logo.png" alt="logo" class="left"/>
+    <%--在用mybatis改写后要改路径--%>
+    <img src="../../images/logo.png" alt="logo" class="left"/>
     <%--方法一：用request.getCookies();遍历--%>
     <%--
     <span>${cookie.admin_code.value}</span>

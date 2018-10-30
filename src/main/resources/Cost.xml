@@ -16,6 +16,22 @@
         select ceil(count(*)/#{pageSize}) from cost
     </select>
     <select id="findByPage" parameterType="java.util.Map" resultType="com.lmt.entity.Cost">
-        select * from (select c.*,rownum r from cost c where rownum &lt; #{page} )where r &gt; #{pageSize}
+        select * from (select c.*,rownum r from cost c where rownum &lt; #{nextMin} )where r &gt; #{lastMax}
     </select>
+
+    <select id="findAllCostSimple" resultType="com.lmt.entity.CostSimple">
+        select cost_id id, name,status,creat_time createTime from cost
+    </select>
+    <!--
+    <select id="findAllCostSimple" resultMap="costMap">
+        select cost_id id, name,status,creat_time createTime from cost
+    </select>
+
+    <resultMap id="costMap" type="com.lmt.entity.CostSimple">
+        <id property="id" column="cost_id"/>
+        <result property="name" column="name"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="creat_time"/>
+    </resultMap>
+    -->
 </mapper>

@@ -68,7 +68,7 @@
 <!--导航区域结束-->
 <!--主要区域开始-->
 <div id="main">
-    <form action="cost/list.form" method="get">
+    <form action="list.form" method="get">
         <!--排序-->
         <div class="search_add">
             <div>

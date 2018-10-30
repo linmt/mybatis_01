@@ -11,4 +11,5 @@ public interface CostMapper {
     List<Cost> findAll();
     List<Cost> findByPage(HashMap map);
     int findTotalPage(int pageSize);
+    List<CostSimple> findAllCostSimple();
 }
