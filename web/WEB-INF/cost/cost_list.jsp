@@ -99,7 +99,7 @@
                     <th>单位费用</th>
                     <th>创建时间</th>
                     <th>开通时间</th>
-                    <th class="width50">状态</th>
+                    <th class="width100">状态</th>
                     <th class="width200"><br /></th>
                 </tr>
                 <c:forEach items="${costs}" var="c" varStatus="s">
@@ -111,10 +111,12 @@
                         <td>${c.unit_cost}</td>
                         <td><fmt:formatDate value="${c.creat_time}" type="both"/></td>
                         <td><fmt:formatDate value="${c.start_time}" type="both"/></td>
+                        <td>
                         <c:choose>
                             <c:when test="status==0">开通</c:when>
                             <c:otherwise>暂停</c:otherwise>
                         </c:choose>
+                        </td>
                         <td>
                             <input type="button" value="启用" class="btn_start" onclick="startFee();" />
                             <!--只传id，一是传的数据量少，二是防止多人修改产生意外-->

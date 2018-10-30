@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-<mapper namespace="com.lmt.entity.DeptMapper">
+<mapper namespace="CostSql">
     <insert id="save" parameterType="com.lmt.entity.Cost">
         insert into cost (cost_id, name, base_duration, base_cost, unit_cost, status,
           descr, creat_time, start_time, cost_type)
@@ -15,7 +15,7 @@
     <select id="findTotalPage" parameterType="int" resultType="int">
         select ceil(count(*)/#{pageSize}) from cost
     </select>
-    <select id="findByPage" parameterType="java.util.ArrayList" resultType="com.lmt.entity.Cost">
-        select * from (select c.*,rownum r from cost c where rownum &lt; #{0} )where r &gt; #{1}
+    <select id="findByPage" parameterType="java.util.Map" resultType="com.lmt.entity.Cost">
+        select * from (select c.*,rownum r from cost c where rownum &lt; #{page} )where r &gt; #{pageSize}
     </select>
 </mapper>

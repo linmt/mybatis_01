@@ -1,6 +1,6 @@
 package com.lmt.entity;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -9,6 +9,6 @@ import java.util.List;
 public interface CostMapper {
     void save(Cost cost);
     List<Cost> findAll();
-    List<Cost> findByPage(ArrayList list);
+    List<Cost> findByPage(HashMap map);
     int findTotalPage(int pageSize);
 }
