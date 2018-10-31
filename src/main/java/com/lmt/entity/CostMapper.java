@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * Created by 张洲徽 on 2018/10/29.
  */
+//这个就是dao接口
 public interface CostMapper {
     void save(Cost cost);
     List<Cost> findAll();

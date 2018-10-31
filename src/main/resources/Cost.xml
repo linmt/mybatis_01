@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-<mapper namespace="CostSql">
+<!-- namespqce要和CostMapper路径一致 -->
+<mapper namespace="com.lmt.entity.CostMapper">
     <insert id="save" parameterType="com.lmt.entity.Cost">
         insert into cost (cost_id, name, base_duration, base_cost, unit_cost, status,
           descr, creat_time, start_time, cost_type)
