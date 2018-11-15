@@ -1,2 +1,5 @@
 主键自增配置
   Test   Cost.xml
+
+测试返回Map、List<Map>类型
+  Test   Dept.xml

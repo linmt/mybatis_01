@@ -25,4 +25,12 @@
     <select id="findAllDname" parameterType="java.lang.String" resultType="java.util.Map">
         select dname from DEPT where loc=#{loc}
     </select>
+    <select id="findDept" parameterType="int" resultType="java.util.HashMap">
+        select DEPTNO,DNAME from DEPT where DEPTNO=#{no}
+    </select>
+
+    <select id="findDeptnoAndDname" parameterType="int" resultType="java.util.HashMap">
+        select DEPTNO,DNAME from DEPT
+    </select>
+
 </mapper>
