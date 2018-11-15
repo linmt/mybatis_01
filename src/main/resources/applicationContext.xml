@@ -43,27 +43,27 @@
     <!-- MyBatis - Spring -->
     <!-- 可以根据给定的Mapper接口生成实现组件，id是实现接口的对象 -->
 
-    <bean id="CostMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <!--<bean id="CostMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
         <!-- 指定Mapper接口，value值和接口名一致 -->
-        <property name="mapperInterface" value="com.lmt.entity.CostMapper"/>
-        <!-- 指定sqlsession资源 -->
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <!-- SqlSessionFactoryBean 创建的Bean是sqlSessionFactory 的对象 -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!--<property name="mapperInterface" value="com.lmt.entity.CostMapper"/>-->
+    <!-- 指定sqlsession资源 -->
+    <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean>-->
+<!-- SqlSessionFactoryBean 创建的Bean是sqlSessionFactory 的对象 -->
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
         <!-- 以下两步代替了SqlMapConfig.xml，该文件可以删掉 -->
         <!-- 注入DataSource -->
-        <property name="dataSource" ref="dbcp" />
-        <!-- 注入SQL语句文件 -->
-        <property name="mapperLocations" value="classpath:*.xml" />
-    </bean>
-    <bean id="sqlSession" scope="prototype" factory-bean="sqlSessionFactory" factory-method="openSession"/>
-    <!--
-    管理Mapper接口的实例
-    1 必须注入 sqlSessionFactory 对象
-    2 必须设置 被创建的Mapper接口名
-    3 MapperFactoryBean 按照接口名创建对象
-    -->
+    <!--<property name="dataSource" ref="dbcp" />-->
+    <!-- 注入SQL语句文件 -->
+    <!--<property name="mapperLocations" value="classpath:*.xml" />-->
+<!--</bean>-->
+<!--<bean id="sqlSession" scope="prototype" factory-bean="sqlSessionFactory" factory-method="openSession"/>-->
+<!--
+管理Mapper接口的实例
+1 必须注入 sqlSessionFactory 对象
+2 必须设置 被创建的Mapper接口名
+3 MapperFactoryBean 按照接口名创建对象
+-->
     <!--
     <bean id="deptMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />

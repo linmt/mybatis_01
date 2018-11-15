@@ -27,10 +27,29 @@ public class Test {
             System.out.println(d.getDname());
         }
         */
+        //主键值需要手动添加
+        /*
         Timestamp ts = Timestamp.valueOf("2018-09-23 20:03:48");
         Timestamp ts2 = Timestamp.valueOf("2019-09-23 20:03:48");
         Cost cost=new Cost(100,"包月",(long)123,1000.00,10.00,"1","包月很爽",ts,ts2,"1");
         session.insert("save",cost);
+        */
+        //主键非自增，在xml文件中配置实现自增
+
+        Timestamp ts = Timestamp.valueOf("2018-09-23 20:03:48");
+        Timestamp ts2 = Timestamp.valueOf("2019-09-23 20:03:48");
+        Cost cost=new Cost(null,"包月",(long)123,1000.00,10.00,"1","包月很爽",ts,ts2,"1");
+        int cost_id=session.insert("save",cost);
+        System.out.println("cost_id :" + cost_id); //  1
+        System.out.println("新增数据的主键 :" + cost.getCost_id());
+
+        //主键自增，在xml中配置
+        /*
+        Timestamp ts = Timestamp.valueOf("2018-09-23 20:03:48");
+        Timestamp ts2 = Timestamp.valueOf("2019-09-23 20:03:48");
+        Cost cost=new Cost(null,"包月",(long)123,1000.00,10.00,"1","包月很爽",ts,ts2,"1");
+        session.insert("save",cost);
+        */
         /*
         List<Cost> list = session.selectList("findAll");
         for(Cost c:list){
